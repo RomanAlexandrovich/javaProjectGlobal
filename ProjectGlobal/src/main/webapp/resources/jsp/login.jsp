@@ -1,35 +1,44 @@
 <%@ include file="./header.jsp"%>
-<title>Log in with your account</title>
-
+<title>Login</title>
 <body>
-	<div class="container">
-		<div class="row">
-			<div class="col"></div>
-			<div class="col">
-				<form method="POST" action="${contextPath}/login"
-					class="form-signin">
-					<h2>Log in</h2>
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-pic js-tilt" data-tilt>
+					<img
+						href="${contextPath}/resources/static/images/home_image/img-01.png"
+						alt="IMG">
+				</div>
+				<div class="col">
+					<form method="POST" action="${contextPath}/login"
+						class="login100-form validate-form">
+						<span class="login100-form-title"> REGISTRATION </span>
 
-					<div class="form-group ${error != null ? 'has-error' : ''}">
-						<span>${message}</span> 
-						<input name="username" type="text"
-							placeholder="Username" /><br> 
-							<input name="password"
-							type="password" placeholder="Password" /><br>
-							 <span>${error}</span>
-						<input type="hidden" name="${_csrf.parameterName}"
-							value="${_csrf.token}" /><br>
+						<div class="wrap-input100 validate-input">
 
-						<button type="submit">Log In</button>
+							<input class="input100" type="text" name="username"
+								placeholder="Username"> <span class="focus-input100"></span>
+							<span class="symbol-input100"> <i class="fa fa-envelope"
+								aria-hidden="true"></i>
+							</span>
+						</div>
+
+						<div class="wrap-input100 validate-input">
+							<input class="input100" type="password" name="password"
+								placeholder="Password"> <span class="focus-input100"></span>
+							<span class="symbol-input100"> 
+							<i class="fa fa-lock" aria-hidden="true"></i>
+							</span> <input type="hidden" name="${_csrf.parameterName}"
+								value="${_csrf.token}" /><br>
+						</div>
+						<div class="container-login100-form-btn">
+						<button class="login100-form-btn">
+							Login
+						</button>
 					</div>
-				</form>
+					</form>
+				</div>
 			</div>
-
 		</div>
 	</div>
-
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<script src="${contextPath}/resources/js/bootstrap.min.js"></script>
-</body>
-</html>
+	<%@ include file="./footer.jsp"%>
