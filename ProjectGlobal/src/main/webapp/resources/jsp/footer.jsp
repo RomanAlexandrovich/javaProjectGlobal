@@ -15,8 +15,5 @@
 <!--===============================================================================================-->
 	<script src="${contextPath}/resources/static/js/main.js"></script>
 
-
-	<script src="${contextPath}/resources/static/js/main.js"></script>
-
 </body>
 </html>

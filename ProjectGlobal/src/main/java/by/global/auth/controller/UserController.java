@@ -10,12 +10,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import by.global.auth.validator.UserValidator;
-import by.global.model.ImageUser;
 import by.global.model.UserMY;
 import by.global.service.ImageUserService;
 import by.global.service.PosUserService;
 import by.global.service.ProjectService;
-import by.global.service.SecurityService;
 import by.global.service.StatusUserService;
 import by.global.service.UserService;
 
@@ -32,8 +30,6 @@ public class UserController {
 	@Autowired
 	private ProjectService serviceProject;
 	
-	@Autowired
-	private SecurityService securityService;
 
 	@Autowired
 	private UserValidator userValidator;
