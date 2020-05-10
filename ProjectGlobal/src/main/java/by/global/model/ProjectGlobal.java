@@ -60,10 +60,10 @@ public class ProjectGlobal {
 	 * project task list
 	 * (список задач проекта)
 	 */
-	@ManyToMany(fetch = FetchType.LAZY) //
-	@JoinTable(name = "projectglobal_listtaskproject", joinColumns = { @JoinColumn(name = "project_id") },
-	inverseJoinColumns = {@JoinColumn(name = "task_id") })
-	private List<Task> listTask;
+//	@ManyToMany(fetch = FetchType.LAZY) //
+//	@JoinTable(name = "projectglobal_listtaskproject", joinColumns = { @JoinColumn(name = "project_id") },
+//	inverseJoinColumns = {@JoinColumn(name = "task_id") })
+//	private List<Task> listTask;
 	/*
 	 *list of users allowed to the project
 	 *(список пользователей, допущенных к проекту)
@@ -121,19 +121,6 @@ public class ProjectGlobal {
 	public void setListUsers(List<UserMY> listUsers) {
 		this.listUsers = listUsers;
 	}
-	public List<Task> getListTask() {
-		return listTask;
-	}
-	public void setListTask(List<Task> listTask) {
-		this.listTask = listTask;
-	}
-	@Override
-	public String toString() {
-		return "ProjectGlobal [idProject=" + idProject + ", nameProject=" + nameProject + ", descriptionsProject="
-				+ descriptionsProject + ", keyNameProject=" + keyNameProject + ", statusProject=" + statusProject
-				+ ", managerUser=" + managerUser + ", imageAvatarProject=" + imageAvatarProject + ", listTask="
-				+ listTask + ", listUsers=" + listUsers + "]";
-	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -142,7 +129,6 @@ public class ProjectGlobal {
 		result = prime * result + idProject;
 		result = prime * result + ((imageAvatarProject == null) ? 0 : imageAvatarProject.hashCode());
 		result = prime * result + ((keyNameProject == null) ? 0 : keyNameProject.hashCode());
-		result = prime * result + ((listTask == null) ? 0 : listTask.hashCode());
 		result = prime * result + ((listUsers == null) ? 0 : listUsers.hashCode());
 		result = prime * result + ((managerUser == null) ? 0 : managerUser.hashCode());
 		result = prime * result + ((nameProject == null) ? 0 : nameProject.hashCode());
@@ -175,11 +161,6 @@ public class ProjectGlobal {
 				return false;
 		} else if (!keyNameProject.equals(other.keyNameProject))
 			return false;
-		if (listTask == null) {
-			if (other.listTask != null)
-				return false;
-		} else if (!listTask.equals(other.listTask))
-			return false;
 		if (listUsers == null) {
 			if (other.listUsers != null)
 				return false;
@@ -201,8 +182,14 @@ public class ProjectGlobal {
 		} else if (!statusProject.equals(other.statusProject))
 			return false;
 		return true;
-	}	
-
+	}
+	@Override
+	public String toString() {
+		return "ProjectGlobal [idProject=" + idProject + ", nameProject=" + nameProject + ", descriptionsProject="
+				+ descriptionsProject + ", keyNameProject=" + keyNameProject + ", statusProject=" + statusProject
+				+ ", managerUser=" + managerUser + ", imageAvatarProject=" + imageAvatarProject + ", listUsers="
+				+ listUsers + "]";
+	}
 	
 	
 	
