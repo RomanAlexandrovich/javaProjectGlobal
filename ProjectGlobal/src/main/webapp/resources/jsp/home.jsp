@@ -61,12 +61,13 @@
                 <div class="row">
                 <div class="col-md-3 col-sm-6 col-xs-6">           
 			<div class="panel panel-back noti-box">
-                <span class="icon-box bg-color-red set-icon">
-                    <i class="fa fa-envelope-o"></i>
+                <span class="icon-box bg-color-yellow set-icon">
+                    <i class="fa fa-bell-o"></i>
                 </span>
+                <!-- fa fa-envelope-o-->
                 <div class="text-box" >
-                    <p class="main-text">120 New</p>
-                    <p class="text-muted">Messages</p>
+                    <p class="main-text">${listTaskToDo} Tasks</p>
+                    <p class="text-muted">TO DO</p>
                 </div>
              </div>
 		     </div>
@@ -76,15 +77,15 @@
                     <i class="fa fa-bars"></i>
                 </span>
                 <div class="text-box" >
-                    <p class="main-text">30 Tasks</p>
-                    <p class="text-muted">Remaining</p>
+                    <p class="main-text">${listTaskInProcess} Tasks</p>
+                    <p class="text-muted">In Process</p>
                 </div>
              </div>
 		     </div>
                     <div class="col-md-3 col-sm-6 col-xs-6">           
 			<div class="panel panel-back noti-box">
                 <span class="icon-box bg-color-blue set-icon">
-                    <i class="fa fa-bell-o"></i>
+                    <i class="fa fa-bars"></i>
                 </span>
                 <div class="text-box" >
                     <p class="main-text">240 New</p>
@@ -485,7 +486,7 @@
 				<p>Email : ${user.emailUser}</p>
 				<p>Status : ${user.statusUser.nameStatusUser}</p>
 				<p>Total tasks: ${totalTasks}</p>
-				<p>- task (ToDo): ${listTaskToDo}</p>
+				
 				<p>- task (In Process): ${listTaskInProcess}</p>
 				<p>- task (Done): ${listTaskDone}</p>
 				<p>- task (Close): ${listTaskClose}</p>
