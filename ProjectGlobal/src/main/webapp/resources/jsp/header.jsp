@@ -39,7 +39,6 @@
 <link rel="stylesheet" type="text/css"
 	href="${contextPath}/resources/static/css/main.css">
 <!--===============================================================================================-->
-
 <!--==HOME==-->
 <link rel="stylesheet" type="text/css"
 	href="${contextPath}/resources/static/bootstrap/css/bootstrap.css">
