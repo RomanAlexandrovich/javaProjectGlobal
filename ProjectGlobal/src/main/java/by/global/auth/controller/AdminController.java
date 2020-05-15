@@ -1,5 +1,7 @@
 package by.global.auth.controller;
 
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -75,7 +77,9 @@ public class AdminController {
 		model.addAttribute("listTaskInProcess", listTaskUserInProcess.size());
 		model.addAttribute("listTaskDone", listTaskUserDone.size());
 		model.addAttribute("listTaskClose", listTaskUserClose.size());
-		
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd MM yyyy");
+		ZonedDateTime zdt=ZonedDateTime.now();
+		model.addAttribute("localTime", zdt.format(dtf));
 		return "home";
 	}
 
