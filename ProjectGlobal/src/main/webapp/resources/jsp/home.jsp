@@ -1,32 +1,59 @@
 <%@ include file="./header.jsp"%>
-<title>Global-task</title>
+<title>Home</title>
 <body>
 	<form:form action="/home" method="GET" modelAttribute="user">
 
-		<div>
-			<div>
-				<h1>${user.nameUser}${user.lastnameUser}</h1>
-				<div>
-					<h4>
-						<a href="${contextPath}/task">Create task</a>
-					</h4>
-					<br>
+		<div id="wrapper">
+			<nav class="navbar navbar-default navbar-cls-top " role="navigation"
+				style="margin-bottom: 0">
+				<div class="navbar-header">
+					<!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button> -->
+					<a class="navbar-brand" href="/home">${user.nameUser}${user.lastnameUser}</a>
 				</div>
-				<c:forEach var="role" items="${user.rolesUser}">
-					<c:if test="${role.idRole == 1}">
-						<div>
-							<a href="${contextPath}/admin">Setting administration</a>
-						</div>
-					</c:if>
+				<div
+					style="color: white; padding: 15px 50px 5px 50px; float: right; font-size: 16px;">
+					Last access : 30 May 2014 &nbsp; <a href="#"
+						class="btn btn-danger square-btn-adjust">Logout</a>
+				</div>
+			</nav>
+			<!-- /. NAV TOP  -->
+			<nav class="navbar-default navbar-side" role="navigation">
+				<div class="sidebar-collapse">
+					<ul class="nav" id="main-menu">
+						<li class="text-center"><img class="avatar"
+							alt="avatar User ${user.nameUser}"
+							src="${contextPath}/resources/static/image/avatar/${user.avatarImageUser.urlImageUser}"></li>
+						<li><a class="active-menu" href="/home"><i
+								class="fa fa-dashboard fa-3x"></i>Home</a></li>
+						<li><a href="/tasks"><i class="fa fa-desktop fa-3x"></i>
+								Tasks</a></li>
+						<li><a href="/project"><i class="fa fa-qrcode fa-3x"></i>Projects</a></li>
+						<li><c:forEach var="role" items="${user.rolesUser}">
+								<c:if test="${role.idRole == 1}">
+									<div>
+										<a href="${contextPath}/admin"><i
+											class="fa fa-bar-chart-o fa-3x"></i>Setting administration</a>
+									</div>
+								</c:if>
 
-				</c:forEach>
-				<br>
+							</c:forEach></li>
+					</ul>
+
+				</div>
+
+			</nav>
+			<div>
+				<h4>
+					<a href="${contextPath}/task">Create task</a>
+				</h4>
 			</div>
 
 			<div>
-				<a href="/image"><img class="avatar"
-					alt="avatar User ${user.nameUser}"
-					src="${contextPath}/resources/static/image/avatar/${user.avatarImageUser.urlImageUser}"></a><br>
 				<p>Telefon : ${user.telefonUser}</p>
 				<p>Email : ${user.emailUser}</p>
 				<p>Status : ${user.statusUser.nameStatusUser}</p>
@@ -38,7 +65,6 @@
 			</div>
 			<h1>Task list ${user.nameUser}</h1>
 			<br>
-		</div>
 		<div>
 			<table border="1">
 				<tr>
@@ -89,6 +115,7 @@
 		</table>
 
 		<a href="<c:url value="/logout"/>">Logout</a>
+		</div>
 	</form:form>
 
 
