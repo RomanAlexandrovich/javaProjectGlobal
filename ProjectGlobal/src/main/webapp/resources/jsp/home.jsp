@@ -72,7 +72,7 @@
 								</span>
 								<!-- fa fa-envelope-o-->
 								<div class="text-box">
-									<p class="main-text">${listTaskToDo}Tasks</p>
+									<p class="main-text">${listTaskToDo} Tasks</p>
 									<p class="text-muted">TO DO</p>
 								</div>
 							</div>
@@ -83,7 +83,7 @@
 									class="fa fa-bars"></i>
 								</span>
 								<div class="text-box">
-									<p class="main-text">${listTaskInProcess}Task</p>
+									<p class="main-text">${listTaskInProcess} Task</p>
 									<p class="text-muted">In Process</p>
 								</div>
 							</div>
@@ -94,7 +94,7 @@
 									class="fa fa-bars"></i>
 								</span>
 								<div class="text-box">
-									<p class="main-text">${listTaskDone}Task</p>
+									<p class="main-text">${listTaskDone} Task</p>
 									<p class="text-muted">Done</p>
 								</div>
 							</div>
@@ -105,7 +105,7 @@
 									class="fa fa-rocket"></i>
 								</span>
 								<div class="text-box">
-									<p class="main-text">${listTaskClose}Task</p>
+									<p class="main-text">${listTaskClose} Task</p>
 									<p class="text-muted">Close</p>
 								</div>
 							</div>
@@ -120,7 +120,7 @@
 									class="fa fa-desktop"></i>
 								</span>
 								<div class="text-box">
-									<p class="main-text">${totalTasks}Task</p>
+									<p class="main-text">${totalTasks} Task</p>
 									<p class="text-muted">Total number of tasks</p>
 								</div>
 							</div>
@@ -265,6 +265,7 @@
 
 			</div>
 		</form:form>
+		</div>
 
 
 		<%@ include file="./footer.jsp"%>

@@ -50,7 +50,7 @@
 	href="${contextPath}/resources/static/css/home/custom.css">
 <!--===============================================================================================-->
 <link rel="stylesheet" type="text/css"
-	href="${contextPath}/resources/static/js-home/morris/morris-0.4.3.min.css">
+	href="${contextPath}/resources/static/js/js-home/morris/morris-0.4.3.min.css">
 <!--===============================================================================================-->
 <!--==Task==-->
 
