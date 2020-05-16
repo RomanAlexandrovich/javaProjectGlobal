@@ -21,11 +21,8 @@
 					style="color: white; padding: 15px 50px 5px 50px; float: right; font-size: 16px;">
 					Last access : ${localTime} &nbsp; <a href=<c:url value="/logout"/>
 						class="btn btn-danger square-btn-adjust">Logout</a>
-				</div>
-				<div>
-					style="color: white; padding: 15px 50px 5px 50px; float: right; font-size: 16px;">
-					<a href="${contextPath}/task"
-						class="btn btn-danger square-btn-adjust">Create task</a>
+						<a href="${contextPath}/task"
+						class="btn btn-danger-create square-btn-adjust">Create task</a>
 				</div>
 			</nav>
 			<!-- /. NAV TOP  -->
@@ -265,7 +262,6 @@
 				<p>Telefon : ${user.telefonUser}</p>
 				<p>Email : ${user.emailUser}</p>
 				<p>Status : ${user.statusUser.nameStatusUser}</p>
-				<p>Total tasks: ${totalTasks}</p>
 
 			</div>
 		</form:form>
