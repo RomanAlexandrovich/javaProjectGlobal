@@ -1,4 +1,21 @@
 <!--===============================================================================================-->
+<!-- JQUERY SCRIPTS HOME-->
+<script
+	src="${contextPath}/resources/static/js/js-home/jquery-1.10.2.js"></script>
+<!-- BOOTSTRAP SCRIPTS HOME-->
+<script
+	src="${contextPath}/resources/static/js/js-homejs/bootstrap.min.js"></script>
+<!-- METISMENU SCRIPTS HOME-->
+<script
+	src="${contextPath}/resources/static/js/js-home/jquery.metisMenu.js"></script>
+<!-- MORRIS CHART SCRIPTS HOME-->
+<script
+	src="${contextPath}/resources/static/js/js-home/morris/raphael-2.1.0.min.js"></script>
+<script
+	src="${contextPath}/resources/static/js/js-home/morris/morris.js"></script>
+<!-- CUSTOM SCRIPTS HOME-->
+<script src="${contextPath}/resources/static/js/js-home/custom.js"></script>
+<!--===============================================================================================-->
 <script
 	src="${contextPath}/resources/static/js/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->

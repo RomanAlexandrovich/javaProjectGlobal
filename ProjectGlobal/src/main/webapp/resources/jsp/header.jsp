@@ -41,7 +41,7 @@
 <!--===============================================================================================-->
 <!--==HOME==-->
 <link rel="stylesheet" type="text/css"
-	href="${contextPath}/resources/static/bootstrap/css/bootstrap.css">
+	href="${contextPath}/resources/static/css/home/bootstrap.css">
 <!--===============================================================================================-->
 <link rel="stylesheet" type="text/css"
 	href="${contextPath}/resources/static/css/home/font-awesome.css">
@@ -50,7 +50,7 @@
 	href="${contextPath}/resources/static/css/home/custom.css">
 <!--===============================================================================================-->
 <link rel="stylesheet" type="text/css"
-	href="${contextPath}/resources/static/js/morris/morris-0.4.3.min.css">
+	href="${contextPath}/resources/static/js-home/morris/morris-0.4.3.min.css">
 <!--===============================================================================================-->
 <!--==Task==-->
 
