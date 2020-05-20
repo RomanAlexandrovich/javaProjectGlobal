@@ -72,7 +72,7 @@
 								</span>
 								<!-- fa fa-envelope-o-->
 								<div class="text-box">
-									<p class="main-text">${listTaskToDo}Tasks</p>
+									<p class="main-text">${listTaskToDo}  Tasks</p>
 									<p class="text-muted">TO DO</p>
 								</div>
 							</div>
@@ -83,7 +83,7 @@
 									class="fa fa-bars"></i>
 								</span>
 								<div class="text-box">
-									<p class="main-text">${listTaskInProcess}Task</p>
+									<p class="main-text">${listTaskInProcess}  Task</p>
 									<p class="text-muted">In Process</p>
 								</div>
 							</div>
@@ -94,7 +94,7 @@
 									class="fa fa-bars"></i>
 								</span>
 								<div class="text-box">
-									<p class="main-text">${listTaskDone}Task</p>
+									<p class="main-text">${listTaskDone}  Task</p>
 									<p class="text-muted">Done</p>
 								</div>
 							</div>
@@ -105,7 +105,7 @@
 									class="fa fa-rocket"></i>
 								</span>
 								<div class="text-box">
-									<p class="main-text">${listTaskClose}Task</p>
+									<p class="main-text">${listTaskClose}  Task</p>
 									<p class="text-muted">Close</p>
 								</div>
 							</div>
@@ -155,23 +155,35 @@
 															${taskUser.idTask}</td>
 														<td><a href="/task-${taskUser.idTask}">${taskUser.nameTask}</a></td>
 														<td><a href="/task-${taskUser.idTask}">${taskUser.descriptionsTask}</a></td>
-														<td>
-															<c:choose>
-																<c:when test="${taskUser.taskStatus.idStatusTask == 1}"><span class="label label-yellow">${taskUser.taskStatus.nameStatusTask}</span></c:when>
-																<c:when test="${taskUser.taskStatus.idStatusTask == 2}"><span class="label label-success">${taskUser.taskStatus.nameStatusTask}</span></c:when>
-																<c:when test="${taskUser.taskStatus.idStatusTask == 3}"><span class="label label-primary">${taskUser.taskStatus.nameStatusTask}</span></c:when>
-																<c:when test="${taskUser.taskStatus.idStatusTask == 4}"><span class="label label-default">${taskUser.taskStatus.nameStatusTask}</span></c:when>
-															</c:choose>
-														</td>
+														<td><c:choose>
+																<c:when test="${taskUser.taskStatus.idStatusTask == 1}">
+																	<span class="label label-yellow">${taskUser.taskStatus.nameStatusTask}</span>
+																</c:when>
+																<c:when test="${taskUser.taskStatus.idStatusTask == 2}">
+																	<span class="label label-success">${taskUser.taskStatus.nameStatusTask}</span>
+																</c:when>
+																<c:when test="${taskUser.taskStatus.idStatusTask == 3}">
+																	<span class="label label-primary">${taskUser.taskStatus.nameStatusTask}</span>
+																</c:when>
+																<c:when test="${taskUser.taskStatus.idStatusTask == 4}">
+																	<span class="label label-default">${taskUser.taskStatus.nameStatusTask}</span>
+																</c:when>
+															</c:choose></td>
 														<!-- <td><span class="label label-success">${taskUser.taskStatus.nameStatusTask}</span></td> -->
-														<td>
-														<c:choose>
-																<c:when test="${taskUser.urgencyTask.idUrgency == 1}"><span class="label label-danger">${taskUser.urgencyTask.nameUrgency}</span></c:when>
-																<c:when test="${taskUser.urgencyTask.idUrgency == 2}"><span class="label label-warning">${taskUser.urgencyTask.nameUrgency}</span></c:when>
-																<c:when test="${taskUser.urgencyTask.idUrgency == 3}"><span class="label label-info">${taskUser.urgencyTask.nameUrgency}</span></c:when>
-																<c:when test="${taskUser.urgencyTask.idUrgency == 4}"><span class="label label-default">${taskUser.urgencyTask.nameUrgency}</span></c:when>
-															</c:choose>
-															</td>
+														<td><c:choose>
+																<c:when test="${taskUser.urgencyTask.idUrgency == 1}">
+																	<span class="label label-danger">${taskUser.urgencyTask.nameUrgency}</span>
+																</c:when>
+																<c:when test="${taskUser.urgencyTask.idUrgency == 2}">
+																	<span class="label label-warning">${taskUser.urgencyTask.nameUrgency}</span>
+																</c:when>
+																<c:when test="${taskUser.urgencyTask.idUrgency == 3}">
+																	<span class="label label-info">${taskUser.urgencyTask.nameUrgency}</span>
+																</c:when>
+																<c:when test="${taskUser.urgencyTask.idUrgency == 4}">
+																	<span class="label label-default">${taskUser.urgencyTask.nameUrgency}</span>
+																</c:when>
+															</c:choose></td>
 														<td>${taskUser.creationTaskProjectMain.nameProject}</td>
 														<td>${taskUser.timeTask}</td>
 													</tr>
@@ -184,18 +196,6 @@
 
 						</div>
 					</div>
-					<!-- /. ROW  -->
-					<div class="row">
-						<div class="col-md-9 col-sm-12 col-xs-12">
-							<div class="panel panel-default">
-								<div class="panel-heading">Bar Chart Example</div>
-								<div class="panel-body">
-									<div id="morris-bar-chart"></div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- /. ROW  -->
 					<div class="row">
 						<div class="col-md-12 col-sm-12 col-xs-12">
 							<div class="panel panel-default">
@@ -218,13 +218,20 @@
 															alt="image project ${project.nameProject}"
 															src="${contextPath}/resources/static/image/project/${project.imageAvatarProject.urlImageProject}"></td>
 														<td><a href="/project-${project.idProject}">${project.nameProject}</a></td>
-														<td>
-															<c:choose>
-																<c:when test="${project.statusProject.idStatusProject == 1}"><span class="label label-success">${project.statusProject.nameStatusProject}</span></c:when>
-																<c:when test="${project.statusProject.idStatusProject == 2}"><span class="label label-primary">${project.statusProject.nameStatusProject}</span></c:when>
-																<c:when test="${project.statusProject.idStatusProject == 3}"><span class="label label-default">${project.statusProject.nameStatusProject}</span></c:when>
-																</c:choose>
-														</td>
+														<td><c:choose>
+																<c:when
+																	test="${project.statusProject.idStatusProject == 1}">
+																	<span class="label label-success">${project.statusProject.nameStatusProject}</span>
+																</c:when>
+																<c:when
+																	test="${project.statusProject.idStatusProject == 2}">
+																	<span class="label label-primary">${project.statusProject.nameStatusProject}</span>
+																</c:when>
+																<c:when
+																	test="${project.statusProject.idStatusProject == 3}">
+																	<span class="label label-default">${project.statusProject.nameStatusProject}</span>
+																</c:when>
+															</c:choose></td>
 													</tr>
 
 												</c:forEach>
@@ -237,33 +244,6 @@
 						</div>
 					</div>
 
-
-					<!-- /. ROW  -->
-					<div class="row">
-						<div class="col-md-12 col-sm-12 col-xs-12">
-							<div class="panel panel-default">
-								<div class="panel-heading">Label Examples</div>
-								<div class="panel-body">
-									<span class="label label-default">Default</span> <span
-										class="label label-primary">Primary</span> <span
-										class="label label-success">Success</span> <span
-										class="label label-info">Info</span> <span
-										class="label label-warning">Warning</span> <span
-										class="label label-danger">Danger</span>
-								</div>
-							</div>
-
-							<div class="panel panel-default">
-								<div class="panel-heading">Donut Chart Example</div>
-								<div class="panel-body">
-									<div id="morris-donut-chart"></div>
-								</div>
-							</div>
-
-						</div>
-
-						<!-- /. ROW  -->
-					</div>
 					<!-- /. PAGE INNER  -->
 				</div>
 				<!-- /. PAGE WRAPPER  -->
@@ -273,11 +253,6 @@
 
 
 
-			<div>
-				<h4>
-					<a href="${contextPath}/task">Create task</a>
-				</h4>
-			</div>
 
 			<div>
 				<p>Telefon : ${user.telefonUser}</p>
