@@ -18,7 +18,7 @@
 
 						<input class="input100" type="text" name="username"
 							placeholder="Username"> <span class="focus-input100"></span>
-						<span class="symbol-input100"><i class="fa fa-envelope"
+						<span class="symbol-input100"><i class="fa fa-user-o"
 							aria-hidden="true"></i> </span>
 
 					</div>

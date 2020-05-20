@@ -33,20 +33,21 @@
 							class="user-image img-responsive"
 							alt="avatar User ${user.nameUser}"
 							src="${contextPath}/resources/static/image/avatar/${user.avatarImageUser.urlImageUser}"></li>
+						<li><a><i class="fa fa-mobile"></i>${user.telefonUser}</a></li>
+						<li><a><i class="fa fa-envelope"></i>${user.emailUser}</a></li>
+						<li><a>${user.statusUser.nameStatusUser}</a></li>
 						<li><a class="active-menu" href="/home"><i
 								class="fa fa-dashboard fa-3x"></i>Home</a></li>
 						<li><a href="/tasks"><i class="fa fa-desktop fa-3x"></i>
 								Tasks</a></li>
 						<li><a href="/project"><i class="fa fa-qrcode fa-3x"></i>Projects</a></li>
-						<li><c:forEach var="role" items="${user.rolesUser}">
+						<c:forEach var="role" items="${user.rolesUser}">
 								<c:if test="${role.idRole == 1}">
-									<div>
-										<a href="${contextPath}/admin"><i
-											class="fa fa-bar-chart-o fa-3x"></i>Administration</a>
-									</div>
+										<li><a href="${contextPath}/admin"><i
+											class="fa fa-bar-chart-o fa-3x"></i>Administration</a></li>
 								</c:if>
 
-							</c:forEach></li>
+							</c:forEach>
 					</ul>
 
 				</div>
@@ -72,7 +73,7 @@
 								</span>
 								<!-- fa fa-envelope-o-->
 								<div class="text-box">
-									<p class="main-text">${listTaskToDo}  Tasks</p>
+									<p class="main-text">${listTaskToDo}  Task</p>
 									<p class="text-muted">TO DO</p>
 								</div>
 							</div>
@@ -120,7 +121,7 @@
 									class="fa fa-desktop"></i>
 								</span>
 								<div class="text-box">
-									<p class="main-text">${totalTasks}Task</p>
+									<p class="main-text">${totalTasks}   Task</p>
 									<p class="text-muted">Total number of tasks</p>
 								</div>
 							</div>
