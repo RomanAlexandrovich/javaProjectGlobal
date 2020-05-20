@@ -164,7 +164,14 @@
 															</c:choose>
 														</td>
 														<!-- <td><span class="label label-success">${taskUser.taskStatus.nameStatusTask}</span></td> -->
-														<td>${taskUser.urgencyTask.nameUrgency}</td>
+														<td>
+														<c:choose>
+																<c:when test="${taskUser.urgencyTask.idUrgency == 1}"><span class="label label-danger">${taskUser.urgencyTask.nameUrgency}</span></c:when>
+																<c:when test="${taskUser.urgencyTask.idUrgency == 2}"><span class="label label-warning">${taskUser.urgencyTask.nameUrgency}</span></c:when>
+																<c:when test="${taskUser.urgencyTask.idUrgency == 3}"><span class="label label-info">${taskUser.urgencyTask.nameUrgency}</span></c:when>
+																<c:when test="${taskUser.urgencyTask.idUrgency == 4}"><span class="label label-default">${taskUser.urgencyTask.nameUrgency}</span></c:when>
+															</c:choose>
+															</td>
 														<td>${taskUser.creationTaskProjectMain.nameProject}</td>
 														<td>${taskUser.timeTask}</td>
 													</tr>
