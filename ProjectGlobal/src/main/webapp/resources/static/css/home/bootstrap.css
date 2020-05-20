@@ -4305,6 +4305,10 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .label-success {
   background-color: #5cb85c;
 }
+.label-yellow {
+  background-color: #ffff80;
+  color: #800000;
+}
 .label-success[href]:hover,
 .label-success[href]:focus {
   background-color: #449d44;

@@ -20,8 +20,8 @@
 				<div
 					style="color: white; padding: 15px 50px 5px 50px; float: right; font-size: 16px;">
 					Last access : ${localTime} &nbsp; <a href=<c:url value="/logout"/>
-						class="btn btn-danger square-btn-adjust">Logout</a>
-						<a href="${contextPath}/task"
+						class="btn btn-danger square-btn-adjust">Logout</a> <a
+						href="${contextPath}/task"
 						class="btn btn-danger-create square-btn-adjust">Create task</a>
 				</div>
 			</nav>
@@ -42,7 +42,7 @@
 								<c:if test="${role.idRole == 1}">
 									<div>
 										<a href="${contextPath}/admin"><i
-											class="fa fa-bar-chart-o fa-3x"></i>Setting administration</a>
+											class="fa fa-bar-chart-o fa-3x"></i>Administration</a>
 									</div>
 								</c:if>
 
@@ -72,7 +72,7 @@
 								</span>
 								<!-- fa fa-envelope-o-->
 								<div class="text-box">
-									<p class="main-text">${listTaskToDo} Tasks</p>
+									<p class="main-text">${listTaskToDo}Tasks</p>
 									<p class="text-muted">TO DO</p>
 								</div>
 							</div>
@@ -83,7 +83,7 @@
 									class="fa fa-bars"></i>
 								</span>
 								<div class="text-box">
-									<p class="main-text">${listTaskInProcess} Task</p>
+									<p class="main-text">${listTaskInProcess}Task</p>
 									<p class="text-muted">In Process</p>
 								</div>
 							</div>
@@ -94,7 +94,7 @@
 									class="fa fa-bars"></i>
 								</span>
 								<div class="text-box">
-									<p class="main-text">${listTaskDone} Task</p>
+									<p class="main-text">${listTaskDone}Task</p>
 									<p class="text-muted">Done</p>
 								</div>
 							</div>
@@ -105,7 +105,7 @@
 									class="fa fa-rocket"></i>
 								</span>
 								<div class="text-box">
-									<p class="main-text">${listTaskClose} Task</p>
+									<p class="main-text">${listTaskClose}Task</p>
 									<p class="text-muted">Close</p>
 								</div>
 							</div>
@@ -120,7 +120,7 @@
 									class="fa fa-desktop"></i>
 								</span>
 								<div class="text-box">
-									<p class="main-text">${totalTasks} Task</p>
+									<p class="main-text">${totalTasks}Task</p>
 									<p class="text-muted">Total number of tasks</p>
 								</div>
 							</div>
@@ -155,7 +155,15 @@
 															${taskUser.idTask}</td>
 														<td><a href="/task-${taskUser.idTask}">${taskUser.nameTask}</a></td>
 														<td><a href="/task-${taskUser.idTask}">${taskUser.descriptionsTask}</a></td>
-														<td>${taskUser.taskStatus.nameStatusTask}</td>
+														<td>
+															<c:choose>
+																<c:when test="${taskUser.taskStatus.idStatusTask == 1}"><span class="label label-yellow">${taskUser.taskStatus.nameStatusTask}</span></c:when>
+																<c:when test="${taskUser.taskStatus.idStatusTask == 2}"><span class="label label-success">${taskUser.taskStatus.nameStatusTask}</span></c:when>
+																<c:when test="${taskUser.taskStatus.idStatusTask == 3}"><span class="label label-primary">${taskUser.taskStatus.nameStatusTask}</span></c:when>
+																<c:when test="${taskUser.taskStatus.idStatusTask == 4}"><span class="label label-default">${taskUser.taskStatus.nameStatusTask}</span></c:when>
+															</c:choose>
+														</td>
+														<!-- <td><span class="label label-success">${taskUser.taskStatus.nameStatusTask}</span></td> -->
 														<td>${taskUser.urgencyTask.nameUrgency}</td>
 														<td>${taskUser.creationTaskProjectMain.nameProject}</td>
 														<td>${taskUser.timeTask}</td>
@@ -203,7 +211,13 @@
 															alt="image project ${project.nameProject}"
 															src="${contextPath}/resources/static/image/project/${project.imageAvatarProject.urlImageProject}"></td>
 														<td><a href="/project-${project.idProject}">${project.nameProject}</a></td>
-														<td>${project.statusProject.nameStatusProject}</td>
+														<td>
+															<c:choose>
+																<c:when test="${project.statusProject.idStatusProject == 1}"><span class="label label-success">${project.statusProject.nameStatusProject}</span></c:when>
+																<c:when test="${project.statusProject.idStatusProject == 2}"><span class="label label-primary">${project.statusProject.nameStatusProject}</span></c:when>
+																<c:when test="${project.statusProject.idStatusProject == 3}"><span class="label label-default">${project.statusProject.nameStatusProject}</span></c:when>
+																</c:choose>
+														</td>
 													</tr>
 
 												</c:forEach>
@@ -265,7 +279,7 @@
 
 			</div>
 		</form:form>
-		</div>
+	</div>
 
 
-		<%@ include file="./footer.jsp"%>
+	<%@ include file="./footer.jsp"%>
