@@ -54,17 +54,17 @@ public class AdminController {
 		for (Task task : listTask) {
 			if (task.getTaskUser().equals(userMY)) {
 				listTaskUserAll.add(task);
-				switch (task.getTaskStatus().getNameStatusTask()) {
-				case "ToDo":
+				switch (task.getTaskStatus().getIdStatusTask()) {
+				case 1:
 					listTaskUserToDo.add(task);
 					break;
-				case "In Process":
+				case 2:
 					listTaskUserInProcess.add(task);
 					break;
-				case "Done":
+				case 3:
 					listTaskUserDone.add(task);
 					break;
-				case "Close":
+				case 4:
 					listTaskUserClose.add(task);
 					break;	}
 				}

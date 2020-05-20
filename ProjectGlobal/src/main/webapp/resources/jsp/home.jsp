@@ -33,9 +33,9 @@
 							class="user-image img-responsive"
 							alt="avatar User ${user.nameUser}"
 							src="${contextPath}/resources/static/image/avatar/${user.avatarImageUser.urlImageUser}"></li>
-						<li><a><i class="fa fa-mobile"></i>${user.telefonUser}</a></li>
-						<li><a><i class="fa fa-envelope"></i>${user.emailUser}</a></li>
-						<li><a>${user.statusUser.nameStatusUser}</a></li>
+						<li class="Tel-email-status-user"><i class="fa fa-mobile"></i>   ${user.telefonUser}</li>
+						<li class="Tel-email-status-user"><i class="fa fa-envelope"></i>   ${user.emailUser}</li>
+						<li class="Tel-email-status-user"><i class="fa fa-thumbs-up"></i>   ${user.statusUser.nameStatusUser}</li>
 						<li><a class="active-menu" href="/home"><i
 								class="fa fa-dashboard fa-3x"></i>Home</a></li>
 						<li><a href="/tasks"><i class="fa fa-desktop fa-3x"></i>
@@ -73,7 +73,7 @@
 								</span>
 								<!-- fa fa-envelope-o-->
 								<div class="text-box">
-									<p class="main-text">${listTaskToDo}  Task</p>
+									<p class="main-text">${listTaskToDo}  <i class="fa fa-thumb-tack" aria-hidden="true"></i></p>
 									<p class="text-muted">TO DO</p>
 								</div>
 							</div>
@@ -84,7 +84,7 @@
 									class="fa fa-bars"></i>
 								</span>
 								<div class="text-box">
-									<p class="main-text">${listTaskInProcess}  Task</p>
+									<p class="main-text">${listTaskInProcess}  <i class="fa fa-thumb-tack" aria-hidden="true"></i></p>
 									<p class="text-muted">In Process</p>
 								</div>
 							</div>
@@ -95,7 +95,7 @@
 									class="fa fa-bars"></i>
 								</span>
 								<div class="text-box">
-									<p class="main-text">${listTaskDone}  Task</p>
+									<p class="main-text">${listTaskDone}  <i class="fa fa-thumb-tack" aria-hidden="true"></i></p>
 									<p class="text-muted">Done</p>
 								</div>
 							</div>
@@ -106,7 +106,7 @@
 									class="fa fa-rocket"></i>
 								</span>
 								<div class="text-box">
-									<p class="main-text">${listTaskClose}  Task</p>
+									<p class="main-text">${listTaskClose}  <i class="fa fa-thumb-tack" aria-hidden="true"></i></p>
 									<p class="text-muted">Close</p>
 								</div>
 							</div>
@@ -248,18 +248,6 @@
 					<!-- /. PAGE INNER  -->
 				</div>
 				<!-- /. PAGE WRAPPER  -->
-			</div>
-
-
-
-
-
-
-			<div>
-				<p>Telefon : ${user.telefonUser}</p>
-				<p>Email : ${user.emailUser}</p>
-				<p>Status : ${user.statusUser.nameStatusUser}</p>
-
 			</div>
 		</form:form>
 	</div>

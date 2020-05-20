@@ -247,6 +247,13 @@ font-weight: 700;
 	text-shadow:none;
 	
 }
+.sidebar-collapse .nav > .Tel-email-status-user {
+	text-align: center;
+	color:#fff;
+	background:#202020;
+	text-shadow:none;
+	
+}
 .sidebar-collapse > .nav > li > a {
 	padding:15px 10px;
 }
