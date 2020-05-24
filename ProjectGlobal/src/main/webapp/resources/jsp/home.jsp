@@ -145,8 +145,8 @@
 								<div class="panel-heading">Table task</div>
 								<div class="panel-body">
 									<div class="table-responsive">
-										<table class="table table-striped table-bordered table-hover">
-											<thead>
+										<table class="table table-striped table-bordered table-hover" id="dataTables-example">
+											<thead>   
 												<tr>
 													<th>Number</th>
 													<th>Key-Task</th>

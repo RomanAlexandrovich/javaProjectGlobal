@@ -15,6 +15,7 @@
 <link rel="stylesheet"
 	href="${contextPath}/resources/static/css/radio.css">
 <!--===============================================================================================-->
+
 <!--===============================================================================================-->
 <link rel="icon" type="image/png"
 	href="${contextPath}/resources/static/image/home_image/icons/favicon.ico" />
@@ -52,6 +53,10 @@
 <link rel="stylesheet" type="text/css"
 	href="${contextPath}/resources/static/js/js-home/morris/morris-0.4.3.min.css">
 <!--===============================================================================================-->
+<link rel="stylesheet"
+	href="${contextPath}/resources/static/css/button.css">
+<!--===============================================================================================-->
+
 <!--==Task==-->
 
 </head>
