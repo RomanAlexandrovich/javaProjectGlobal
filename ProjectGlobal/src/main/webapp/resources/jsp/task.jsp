@@ -62,7 +62,7 @@
 					<div class="row">
 						<div style="margin: 5px;" class="btn-group">
 							<button data-toggle="dropdown"
-								class="btn btn-danger dropdown-toggle">${task.taskStatus.nameStatusTask}</button>
+								class="btn btn-primary dropdown-toggle">${task.taskStatus.nameStatusTask}</button>
 							<ul class="dropdown-menu">
 							<form:form modelAttribute="statusTask">
 								<c:forEach var="status" items="${listStatusTask}">
