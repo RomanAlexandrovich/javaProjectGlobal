@@ -57,7 +57,7 @@ public class TaskController {
 		model.addAttribute("listStatusTask", serviceStatusTask.findAllStatusTask());
 //		model.addAttribute("Task", editTask);
 		model.addAttribute("task", editTask);
-		return "p_task";
+		return "task";
 	}
 	@PostMapping(value = { "/task-{idTask}" })
 	public String successTask(@PathVariable Integer idTask,@ModelAttribute("statusTask") StatusTask status, Model model) {
@@ -66,7 +66,7 @@ public class TaskController {
 //		serviceStatusTask.findIdStatus(status.getIdStatusTask());
 		getIdTask.setTaskStatus(status);
 		serviceTask.saveTask(getIdTask);
-		return "p_task";
+		return "task";
 	}
 	
 	@GetMapping(value = { "/task-{idTask}/{nameStatus}" })
@@ -79,6 +79,6 @@ public class TaskController {
 		model.addAttribute("listStatusTask", serviceStatusTask.findAllStatusTask());
 		model.addAttribute("task", editTask);
 		serviceTask.saveTask(editTask);
-		return "p_task";	
+		return "task";	
 }
 }
