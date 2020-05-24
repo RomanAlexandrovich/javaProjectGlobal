@@ -33,21 +33,24 @@
 							class="user-image img-responsive"
 							alt="avatar User ${user.nameUser}"
 							src="${contextPath}/resources/static/image/avatar/${user.avatarImageUser.urlImageUser}"></li>
-						<li class="Tel-email-status-user"><i class="fa fa-mobile"></i>   ${user.telefonUser}</li>
-						<li class="Tel-email-status-user"><i class="fa fa-envelope"></i>   ${user.emailUser}</li>
-						<li class="Tel-email-status-user"><i class="fa fa-thumbs-up"></i>   ${user.statusUser.nameStatusUser}</li>
+						<li class="Tel-email-status-user"><i class="fa fa-mobile"></i>
+							${user.telefonUser}</li>
+						<li class="Tel-email-status-user"><i class="fa fa-envelope"></i>
+							${user.emailUser}</li>
+						<li class="Tel-email-status-user"><i class="fa fa-thumbs-up"></i>
+							${user.statusUser.nameStatusUser}</li>
 						<li><a class="active-menu" href="/home"><i
 								class="fa fa-dashboard fa-3x"></i>Home</a></li>
 						<li><a href="/tasks"><i class="fa fa-desktop fa-3x"></i>
 								Tasks</a></li>
 						<li><a href="/project"><i class="fa fa-qrcode fa-3x"></i>Projects</a></li>
 						<c:forEach var="role" items="${user.rolesUser}">
-								<c:if test="${role.idRole == 1}">
-										<li><a href="${contextPath}/admin"><i
-											class="fa fa-bar-chart-o fa-3x"></i>Administration</a></li>
-								</c:if>
+							<c:if test="${role.idRole == 1}">
+								<li><a href="${contextPath}/admin"><i
+										class="fa fa-bar-chart-o fa-3x"></i>Administration</a></li>
+							</c:if>
 
-							</c:forEach>
+						</c:forEach>
 					</ul>
 
 				</div>
@@ -73,7 +76,9 @@
 								</span>
 								<!-- fa fa-envelope-o-->
 								<div class="text-box">
-									<p class="main-text">${listTaskToDo}  <i class="fa fa-thumb-tack" aria-hidden="true"></i></p>
+									<p class="main-text">${listTaskToDo}
+										<i class="fa fa-thumb-tack" aria-hidden="true"></i>
+									</p>
 									<p class="text-muted">TO DO</p>
 								</div>
 							</div>
@@ -84,7 +89,9 @@
 									class="fa fa-bars"></i>
 								</span>
 								<div class="text-box">
-									<p class="main-text">${listTaskInProcess}  <i class="fa fa-thumb-tack" aria-hidden="true"></i></p>
+									<p class="main-text">${listTaskInProcess}
+										<i class="fa fa-thumb-tack" aria-hidden="true"></i>
+									</p>
 									<p class="text-muted">In Process</p>
 								</div>
 							</div>
@@ -95,7 +102,9 @@
 									class="fa fa-bars"></i>
 								</span>
 								<div class="text-box">
-									<p class="main-text">${listTaskDone}  <i class="fa fa-thumb-tack" aria-hidden="true"></i></p>
+									<p class="main-text">${listTaskDone}
+										<i class="fa fa-thumb-tack" aria-hidden="true"></i>
+									</p>
 									<p class="text-muted">Done</p>
 								</div>
 							</div>
@@ -106,7 +115,9 @@
 									class="fa fa-rocket"></i>
 								</span>
 								<div class="text-box">
-									<p class="main-text">${listTaskClose}  <i class="fa fa-thumb-tack" aria-hidden="true"></i></p>
+									<p class="main-text">${listTaskClose}
+										<i class="fa fa-thumb-tack" aria-hidden="true"></i>
+									</p>
 									<p class="text-muted">Close</p>
 								</div>
 							</div>
@@ -121,7 +132,7 @@
 									class="fa fa-desktop"></i>
 								</span>
 								<div class="text-box">
-									<p class="main-text">${totalTasks}   Task</p>
+									<p class="main-text">${totalTasks} Task</p>
 									<p class="text-muted">Total number of tasks</p>
 								</div>
 							</div>
@@ -151,7 +162,13 @@
 												<c:forEach var="taskUser" items="${listTaskUser}"
 													varStatus="Count">
 													<tr>
-														<td>${Count.count}</td>
+														<td><c:choose>
+																<c:when test="${taskUser.urgencyTask.idUrgency == 1}">
+																<span class="label label-danger">${Count.count}</span></c:when>
+															<c:otherwise>
+															${Count.count}
+															</c:otherwise>
+															</c:choose></td>
 														<td>${taskUser.creationTaskProjectMain.keyNameProject}-
 															${taskUser.idTask}</td>
 														<td><a href="/task-${taskUser.idTask}">${taskUser.nameTask}</a></td>
@@ -170,7 +187,6 @@
 																	<span class="label label-default">${taskUser.taskStatus.nameStatusTask}</span>
 																</c:when>
 															</c:choose></td>
-														<!-- <td><span class="label label-success">${taskUser.taskStatus.nameStatusTask}</span></td> -->
 														<td><c:choose>
 																<c:when test="${taskUser.urgencyTask.idUrgency == 1}">
 																	<span class="label label-danger">${taskUser.urgencyTask.nameUrgency}</span>
