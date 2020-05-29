@@ -169,8 +169,7 @@
 															${Count.count}
 															</c:otherwise>
 															</c:choose></td>
-														<td>${taskUser.creationTaskProjectMain.keyNameProject}-
-															${taskUser.idTask}</td>
+														<td>${taskUser.creationTaskProjectMain.keyNameProject}-${taskUser.idTask}</td>
 														<td><a href="/task-${taskUser.idTask}">${taskUser.nameTask}</a></td>
 														<td><a href="/task-${taskUser.idTask}">${taskUser.descriptionsTask}</a></td>
 														<td><c:choose>

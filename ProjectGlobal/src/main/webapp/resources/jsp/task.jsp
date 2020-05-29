@@ -19,7 +19,7 @@
 				</div>
 				<div
 					style="color: white; padding: 15px 50px 5px 50px; float: right; font-size: 16px;">
-					Last access : ${localTime} &nbsp; <a href=<c:url value="/logout"/>
+					<a href=<c:url value="/logout"/>
 						class="btn btn-danger square-btn-adjust">Logout</a> <a
 						href="${contextPath}/task"
 						class="btn btn-danger-create square-btn-adjust">Create task</a>
@@ -54,7 +54,7 @@
 					<div class="row">
 						<div class="col-md-12">
 							<h2>${task.nameTask}</h2>
-							<h5>_____</h5>
+							<h5>${taskUser.creationTaskProjectMain.keyNameProject}-${taskUser.idTask}</h5>
 						</div>
 					</div>
 					<!-- /. ROW  -->
