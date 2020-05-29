@@ -161,7 +161,7 @@
 													<c:if test="${taskUser.urgencyTask.idUrgency == 1}">
 								
 													<tr>
-														<td>${taskUser.creationTaskProjectMain.keyNameProject}-${taskUser.idTask}</td>
+														<td><a href="/task-${taskUser.idTask}">${taskUser.creationTaskProjectMain.keyNameProject}-${taskUser.idTask}</a></td>
 														<td><a href="/task-${taskUser.idTask}">${taskUser.nameTask}</a></td>
 														<td><c:choose>
 																<c:when test="${taskUser.taskStatus.idStatusTask == 1}">
