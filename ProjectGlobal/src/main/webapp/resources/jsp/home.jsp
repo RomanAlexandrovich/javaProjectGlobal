@@ -148,10 +148,8 @@
 										<table class="table table-striped table-bordered table-hover" id="dataTables-example">
 											<thead>   
 												<tr>
-													<th>Number</th>
 													<th>Key-Task</th>
 													<th>Name</th>
-													<th>Task description</th>
 													<th>Status</th>
 													<th>Priority</th>
 													<th>Project</th>
@@ -159,19 +157,12 @@
 												</tr>
 											</thead>
 											<tbody>
-												<c:forEach var="taskUser" items="${listTaskUser}"
-													varStatus="Count">
+												<c:forEach var="taskUser" items="${listTaskUser}">
+													<c:if test="${taskUser.urgencyTask.idUrgency == 1}">
+								
 													<tr>
-														<td><c:choose>
-																<c:when test="${taskUser.urgencyTask.idUrgency == 1}">
-																<span class="label label-danger">${Count.count}</span></c:when>
-															<c:otherwise>
-															${Count.count}
-															</c:otherwise>
-															</c:choose></td>
 														<td>${taskUser.creationTaskProjectMain.keyNameProject}-${taskUser.idTask}</td>
 														<td><a href="/task-${taskUser.idTask}">${taskUser.nameTask}</a></td>
-														<td><a href="/task-${taskUser.idTask}">${taskUser.descriptionsTask}</a></td>
 														<td><c:choose>
 																<c:when test="${taskUser.taskStatus.idStatusTask == 1}">
 																	<span class="label label-yellow">${taskUser.taskStatus.nameStatusTask}</span>
@@ -203,6 +194,7 @@
 														<td>${taskUser.creationTaskProjectMain.nameProject}</td>
 														<td>${taskUser.timeTask}</td>
 													</tr>
+													</c:if>
 												</c:forEach>
 											</tbody>
 										</table>
