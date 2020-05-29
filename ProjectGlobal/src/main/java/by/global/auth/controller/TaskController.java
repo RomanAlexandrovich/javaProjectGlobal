@@ -1,5 +1,8 @@
 package by.global.auth.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -63,7 +66,6 @@ public class TaskController {
 	public String successTask(@PathVariable Integer idTask,@ModelAttribute("statusTask") StatusTask status, Model model) {
 		Task getIdTask = serviceTask.findbyIdTasks(idTask);
 		model.addAttribute("task", getIdTask);
-//		serviceStatusTask.findIdStatus(status.getIdStatusTask());
 		getIdTask.setTaskStatus(status);
 		serviceTask.saveTask(getIdTask);
 		return "task";
@@ -81,4 +83,41 @@ public class TaskController {
 		serviceTask.saveTask(editTask);
 		return "task";	
 }
+	@GetMapping(value = { "/task_all" })
+	public String taskAll(Model model) {
+		int ToDo= 0,Process= 0,Done = 0,Close= 0;
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		UserMY userMY = serviceUser.findByUsername(auth.getName());
+		model.addAttribute("user", userMY);
+		List<Task> listTaskUserAll = new ArrayList<Task>();
+		List<Task> listTaskAll = serviceTask.fillAllTask();
+		for (Task task : listTaskAll) {
+			if (task.getTaskUser().equals(userMY)) {
+				listTaskUserAll.add(task);
+			}}
+		model.addAttribute("listTaskUser", listTaskUserAll);
+		model.addAttribute("countTaskUser", listTaskUserAll.size());
+		for (Task task_1 : listTaskUserAll) {
+			switch (task_1.getTaskStatus().getIdStatusTask()) {
+			case 1:
+				ToDo++;
+				break;
+			case 2:
+				Process++;
+				break;
+			case 3:
+				Done++;
+				break;
+			case 4:
+				Close++;
+				break;	
+				}
+			}
+		model.addAttribute("ToDo", ToDo);
+		model.addAttribute("Process", Process);
+		model.addAttribute("Done", Done);
+		model.addAttribute("Close", Close);
+		
+		return "task_all";	
+	}
 }

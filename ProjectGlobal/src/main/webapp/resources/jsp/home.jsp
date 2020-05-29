@@ -41,7 +41,7 @@
 							${user.statusUser.nameStatusUser}</li>
 						<li><a class="active-menu" href="/home"><i
 								class="fa fa-dashboard fa-3x"></i>Home</a></li>
-						<li><a href="/tasks"><i class="fa fa-desktop fa-3x"></i>
+						<li><a href="/task_all"><i class="fa fa-desktop fa-3x"></i>
 								Tasks</a></li>
 						<li><a href="/project"><i class="fa fa-qrcode fa-3x"></i>Projects</a></li>
 						<c:forEach var="role" items="${user.rolesUser}">
@@ -92,7 +92,7 @@
 									<p class="main-text">${listTaskInProcess}
 										<i class="fa fa-thumb-tack" aria-hidden="true"></i>
 									</p>
-									<p class="text-muted">In Process</p>
+									<p class="text-muted">Process</p>
 								</div>
 							</div>
 						</div>
