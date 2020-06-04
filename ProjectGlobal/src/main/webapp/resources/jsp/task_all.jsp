@@ -77,7 +77,6 @@
 													<th>Priority</th>
 													<th>Project</th>
 													<th>Date create</th>
-													<th></th>
 												</tr>
 											</thead>
 											<tbody>
