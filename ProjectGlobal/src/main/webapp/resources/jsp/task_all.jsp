@@ -77,6 +77,7 @@
 													<th>Priority</th>
 													<th>Project</th>
 													<th>Date create</th>
+													<th></th>
 												</tr>
 											</thead>
 											<tbody>
@@ -123,6 +124,7 @@
 															</c:choose></td>
 														<td>${taskUser.creationTaskProjectMain.nameProject}</td>
 														<td>${taskUser.timeTask}</td>
+														<td><a href="/delete-${taskUser.idTask}"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
 													</tr>
 
 												</c:forEach>

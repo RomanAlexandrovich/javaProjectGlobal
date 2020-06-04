@@ -58,7 +58,6 @@ public class TaskController {
 		model.addAttribute("user", userMY);
 		Task editTask = serviceTask.findbyIdTasks(idTask);
 		model.addAttribute("listStatusTask", serviceStatusTask.findAllStatusTask());
-//		model.addAttribute("Task", editTask);
 		model.addAttribute("task", editTask);
 		return "task";
 	}
@@ -119,5 +118,10 @@ public class TaskController {
 		model.addAttribute("Close", Close);
 		
 		return "task_all";	
+	}
+	@GetMapping("/delete-{idTask}")
+	public String deleteTask(@PathVariable int idTask) {
+		serviceTask.deleteTask(idTask);
+		return "redirect:/task_all";
 	}
 }

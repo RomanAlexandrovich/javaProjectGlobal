@@ -44,12 +44,13 @@
 						<li><a href="/task_all"><i class="fa fa-desktop fa-3x"></i>
 								Tasks</a></li>
 						<li><a href="/project"><i class="fa fa-qrcode fa-3x"></i>Projects</a></li>
+						<li><a class="active-menu" href="/home"><i
+								class="fa fa-bar-chart-o fa-3x"></i>Statistic</a></li>
 						<c:forEach var="role" items="${user.rolesUser}">
 							<c:if test="${role.idRole == 1}">
 								<li><a href="${contextPath}/admin"><i
-										class="fa fa-bar-chart-o fa-3x"></i>Administration</a></li>
+										class="fa fa-cog fa-spin fa-3x fa-fw"></i>Administration</a></li>
 							</c:if>
-
 						</c:forEach>
 					</ul>
 
@@ -86,7 +87,7 @@
 						<div class="col-md-3 col-sm-6 col-xs-6">
 							<div class="panel panel-back noti-box">
 								<span class="icon-box bg-color-green set-icon"> <i
-									class="fa fa-bars"></i>
+									class="fa fa-rocket"></i>
 								</span>
 								<div class="text-box">
 									<p class="main-text">${listTaskInProcess}
@@ -112,7 +113,7 @@
 						<div class="col-md-3 col-sm-6 col-xs-6">
 							<div class="panel panel-back noti-box">
 								<span class="icon-box bg-color-brown set-icon"> <i
-									class="fa fa-rocket"></i>
+									class="fa fa-bars"></i>
 								</span>
 								<div class="text-box">
 									<p class="main-text">${listTaskClose}
@@ -132,7 +133,7 @@
 									class="fa fa-desktop"></i>
 								</span>
 								<div class="text-box">
-									<p class="main-text">${totalTasks} Task</p>
+									<p class="main-text">${totalTasks}Task</p>
 									<p class="text-muted">Total number of tasks</p>
 								</div>
 							</div>
@@ -145,8 +146,9 @@
 								<div class="panel-heading">Table task</div>
 								<div class="panel-body">
 									<div class="table-responsive">
-										<table class="table table-striped table-bordered table-hover" id="dataTables-example">
-											<thead>   
+										<table class="table table-striped table-bordered table-hover"
+											id="dataTables-example">
+											<thead>
 												<tr>
 													<th>Key-Task</th>
 													<th>Name</th>
@@ -159,41 +161,41 @@
 											<tbody>
 												<c:forEach var="taskUser" items="${listTaskUser}">
 													<c:if test="${taskUser.urgencyTask.idUrgency == 1}">
-								
-													<tr>
-														<td><a href="/task-${taskUser.idTask}">${taskUser.creationTaskProjectMain.keyNameProject}-${taskUser.idTask}</a></td>
-														<td><a href="/task-${taskUser.idTask}">${taskUser.nameTask}</a></td>
-														<td><c:choose>
-																<c:when test="${taskUser.taskStatus.idStatusTask == 1}">
-																	<span class="label label-yellow">${taskUser.taskStatus.nameStatusTask}</span>
-																</c:when>
-																<c:when test="${taskUser.taskStatus.idStatusTask == 2}">
-																	<span class="label label-success">${taskUser.taskStatus.nameStatusTask}</span>
-																</c:when>
-																<c:when test="${taskUser.taskStatus.idStatusTask == 3}">
-																	<span class="label label-primary">${taskUser.taskStatus.nameStatusTask}</span>
-																</c:when>
-																<c:when test="${taskUser.taskStatus.idStatusTask == 4}">
-																	<span class="label label-default">${taskUser.taskStatus.nameStatusTask}</span>
-																</c:when>
-															</c:choose></td>
-														<td><c:choose>
-																<c:when test="${taskUser.urgencyTask.idUrgency == 1}">
-																	<span class="label label-danger">${taskUser.urgencyTask.nameUrgency}</span>
-																</c:when>
-																<c:when test="${taskUser.urgencyTask.idUrgency == 2}">
-																	<span class="label label-warning">${taskUser.urgencyTask.nameUrgency}</span>
-																</c:when>
-																<c:when test="${taskUser.urgencyTask.idUrgency == 3}">
-																	<span class="label label-info">${taskUser.urgencyTask.nameUrgency}</span>
-																</c:when>
-																<c:when test="${taskUser.urgencyTask.idUrgency == 4}">
-																	<span class="label label-default">${taskUser.urgencyTask.nameUrgency}</span>
-																</c:when>
-															</c:choose></td>
-														<td>${taskUser.creationTaskProjectMain.nameProject}</td>
-														<td>${taskUser.timeTask}</td>
-													</tr>
+
+														<tr>
+															<td><a href="/task-${taskUser.idTask}">${taskUser.creationTaskProjectMain.keyNameProject}-${taskUser.idTask}</a></td>
+															<td><a href="/task-${taskUser.idTask}">${taskUser.nameTask}</a></td>
+															<td><c:choose>
+																	<c:when test="${taskUser.taskStatus.idStatusTask == 1}">
+																		<span class="label label-yellow">${taskUser.taskStatus.nameStatusTask}</span>
+																	</c:when>
+																	<c:when test="${taskUser.taskStatus.idStatusTask == 2}">
+																		<span class="label label-success">${taskUser.taskStatus.nameStatusTask}</span>
+																	</c:when>
+																	<c:when test="${taskUser.taskStatus.idStatusTask == 3}">
+																		<span class="label label-primary">${taskUser.taskStatus.nameStatusTask}</span>
+																	</c:when>
+																	<c:when test="${taskUser.taskStatus.idStatusTask == 4}">
+																		<span class="label label-default">${taskUser.taskStatus.nameStatusTask}</span>
+																	</c:when>
+																</c:choose></td>
+															<td><c:choose>
+																	<c:when test="${taskUser.urgencyTask.idUrgency == 1}">
+																		<span class="label label-danger">${taskUser.urgencyTask.nameUrgency}</span>
+																	</c:when>
+																	<c:when test="${taskUser.urgencyTask.idUrgency == 2}">
+																		<span class="label label-warning">${taskUser.urgencyTask.nameUrgency}</span>
+																	</c:when>
+																	<c:when test="${taskUser.urgencyTask.idUrgency == 3}">
+																		<span class="label label-info">${taskUser.urgencyTask.nameUrgency}</span>
+																	</c:when>
+																	<c:when test="${taskUser.urgencyTask.idUrgency == 4}">
+																		<span class="label label-default">${taskUser.urgencyTask.nameUrgency}</span>
+																	</c:when>
+																</c:choose></td>
+															<td>${taskUser.creationTaskProjectMain.nameProject}</td>
+															<td>${taskUser.timeTask}</td>
+														</tr>
 													</c:if>
 												</c:forEach>
 											</tbody>
