@@ -198,7 +198,6 @@ max-width:170px;
 
 .navbar-cls-top .navbar-brand {
 	color: #fff;
-background: #3a8f63;
 width: 260px;
 text-align: center;
 height: 60px;
@@ -316,9 +315,7 @@ font-weight: 700;
 	
 }
 .navbar-cls-top .navbar-brand:hover {
-
-background: #3a8f63;
-color:#fff;
+color:#3a8f63;
 
 }
 

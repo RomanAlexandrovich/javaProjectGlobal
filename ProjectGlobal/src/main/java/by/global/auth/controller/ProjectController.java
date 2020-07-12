@@ -1,9 +1,6 @@
 package by.global.auth.controller;
 
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -16,7 +13,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import by.global.model.ProjectGlobal;
-import by.global.model.Task;
 import by.global.model.UserMY;
 import by.global.service.ImageProjectService;
 import by.global.service.ImageUserService;
@@ -120,10 +116,10 @@ public class ProjectController {
 		int active= 0,close= 0,archive= 0;
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		UserMY userMY = serviceUser.findByUsername(auth.getName());
+		model.addAttribute("user", userMY);
 		model.addAttribute("listProject", userMY.getListProject());
 		model.addAttribute("countProjectList", userMY.getListProject().size());
-		List<ProjectGlobal> listProjectAll = new ArrayList<ProjectGlobal>();
-		for (ProjectGlobal project : listProjectAll) {
+		for (ProjectGlobal project : userMY.getListProject()) {
 			switch (project.getStatusProject().getIdStatusProject()) {
 			case 1:
 				active++;
