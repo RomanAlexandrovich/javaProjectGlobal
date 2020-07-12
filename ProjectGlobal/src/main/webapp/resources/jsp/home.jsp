@@ -39,7 +39,7 @@
 							${user.emailUser}</li>
 						<li class="Tel-email-status-user"><i class="fa fa-thumbs-up"></i>
 							${user.statusUser.nameStatusUser}</li>
-						<li><a class="active-menu" href="/home"><i
+						<li><a href="/home"><i
 								class="fa fa-dashboard fa-3x"></i>Home</a></li>
 						<li><a href="/task_all"><i class="fa fa-desktop fa-3x"></i>
 								Tasks</a></li>

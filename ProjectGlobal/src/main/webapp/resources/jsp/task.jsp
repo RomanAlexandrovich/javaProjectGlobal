@@ -51,28 +51,30 @@
 			<!-- /. NAV SIDE  -->
 			<div id="page-wrapper">
 				<div id="page-inner">
+					<!-- /. ROW  -->
+					<hr />
+					<div class="row">
+						<div style="margin: 5px; margin-left: 25px;" class="btn-group">
+							<button data-toggle="dropdown"
+								class="btn btn-primary dropdown-toggle">${task.taskStatus.nameStatusTask}</button>
+							<ul class="dropdown-menu">
+								<form:form modelAttribute="statusTask">
+									<c:forEach var="status" items="${listStatusTask}">
+										<li value="${status.nameStatusTask}"><a
+											href="/task-${task.idTask}/${status.nameStatusTask}">${status.nameStatusTask}</a></li>
+									</c:forEach>
+								</form:form>
+							</ul>
+						</div>
+					</div>
+					<!-- /. ROW  -->
 					<div class="row">
 						<div class="col-md-12">
 							<h2>${task.nameTask}</h2>
 							<h5>${taskUser.creationTaskProjectMain.keyNameProject}-${taskUser.idTask}</h5>
 						</div>
 					</div>
-					<!-- /. ROW  -->
-					<hr />
-					<div class="row">
-						<div style="margin: 5px;" class="btn-group">
-							<button data-toggle="dropdown"
-								class="btn btn-primary dropdown-toggle">${task.taskStatus.nameStatusTask}</button>
-							<ul class="dropdown-menu">
-							<form:form modelAttribute="statusTask">
-								<c:forEach var="status" items="${listStatusTask}">
-									<li value="${status.nameStatusTask}"> <a href="/task-${task.idTask}/${status.nameStatusTask}">${status.nameStatusTask}</a></li>
-								</c:forEach>
-								</form:form>
-							</ul>
-						</div>
-					</div>
-					<!-- /. ROW  -->
+					
 					<hr />
 					<div class="row">
 						<div class="col-md-12">

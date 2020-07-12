@@ -1,5 +1,4 @@
 <%@ include file="./header.jsp"%>
-<title>Home</title>
 <body>
 	<div id="wrapper">
 		<form:form action="/task_all" method="GET">
@@ -47,7 +46,7 @@
 							<li class="Tel-email-status-user">	<i class="fa fa-thumb-tack" aria-hidden="true"></i>
 									Close:
 							${Close}</li>
-						<li><a class="active-menu" href="/home"><i
+						<li><a href="/home"><i
 								class="fa fa-dashboard fa-3x"></i>Home</a></li>
 					</ul>
 
@@ -123,7 +122,7 @@
 															</c:choose></td>
 														<td>${taskUser.creationTaskProjectMain.nameProject}</td>
 														<td>${taskUser.timeTask}</td>
-														
+														 
 														<td><a href="/delete-${taskUser.idTask}"><i class="fa fa-trash" aria-hidden="true"></i></a>
 														</td>
 													</tr>
