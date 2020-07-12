@@ -41,7 +41,7 @@
 							${task.timeTask}</li>
 						<li class="Tel-email-status-user">auvtor:
 							${task.taskUserManager.nameUser}</li>
-						<li><a class="active-menu" href="/home"><i
+						<li><a href="/home"><i
 								class="fa fa-dashboard fa-3x"></i>Home</a></li>
 					</ul>
 

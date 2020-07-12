@@ -54,6 +54,7 @@ public class AdminController {
 		for (Task task : listTask) {
 			if (task.getTaskUser().equals(userMY)) {
 				listTaskUserAll.add(task);
+				
 				switch (task.getTaskStatus().getIdStatusTask()) {
 				case 1:
 					listTaskUserToDo.add(task);

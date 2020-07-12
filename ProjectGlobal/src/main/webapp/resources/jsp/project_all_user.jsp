@@ -71,7 +71,6 @@
 													<th>Description</th>
 													<th>Status</th>
 													<th>Manager</th>
-													<th>Date create</th>
 												</tr>
 											</thead>
 											<tbody>
@@ -100,9 +99,6 @@
 																</c:when>
 															</c:choose></td>
 														<td>${project.managerUser.nameUser} ${project.managerUser.lastnameUser}</td>
-														 
-														<td><a href="/delete-${project.idProject}"><i class="fa fa-trash" aria-hidden="true"></i></a>
-														</td>
 													</tr>
 
 												</c:forEach>

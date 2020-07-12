@@ -161,6 +161,7 @@
 											<tbody>
 												<c:forEach var="taskUser" items="${listTaskUser}">
 													<c:if test="${taskUser.urgencyTask.idUrgency == 1}">
+													<c:if test="${taskUser.taskStatus.idStatusTask != 4 and taskUser.taskStatus.idStatusTask != 3}">
 
 														<tr>
 															<td><a href="/task-${taskUser.idTask}">${taskUser.creationTaskProjectMain.keyNameProject}-${taskUser.idTask}</a></td>
@@ -196,6 +197,7 @@
 															<td>${taskUser.creationTaskProjectMain.nameProject}</td>
 															<td>${taskUser.timeTask}</td>
 														</tr>
+													</c:if>
 													</c:if>
 												</c:forEach>
 											</tbody>

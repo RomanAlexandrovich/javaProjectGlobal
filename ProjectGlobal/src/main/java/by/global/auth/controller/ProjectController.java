@@ -1,5 +1,7 @@
 package by.global.auth.controller;
 
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -13,6 +15,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import by.global.model.ProjectGlobal;
+import by.global.model.StatusProject;
+import by.global.model.StatusTask;
+import by.global.model.Task;
 import by.global.model.UserMY;
 import by.global.service.ImageProjectService;
 import by.global.service.ImageUserService;
@@ -41,7 +46,6 @@ public class ProjectController {
 	private PosUserService posUserService;
 	@Autowired
 	private TaskService serviceTask;
-	
 
 	@GetMapping("/project")
 	public String createProject(Model model) {
@@ -72,27 +76,28 @@ public class ProjectController {
 
 		return "projectAndUser";
 	}
-	@GetMapping(value = { "/project-{idProject}" })
-	public String success(@PathVariable Integer idProject, Model model) {
-		ProjectGlobal editProject = serviceProject.findbyIdProject(idProject);
-		model.addAttribute("project",editProject);
-		model.addAttribute("listTask",serviceTask.fillAllTask());
-//		for (Task task : serviceTask.fillAllTask()) {
-//			if (task.getCreationTaskProjectMain().equals(editProject.getIdProject())) {
-//				
-//			}
-//		};
-		return "view_project";
-	}
-	
+//	@GetMapping(value = { "/project-{idProject}" })
+//	public String success(@PathVariable Integer idProject, Model model) {
+//		ProjectGlobal editProject = serviceProject.findbyIdProject(idProject);
+//		model.addAttribute("project",editProject);
+//		model.addAttribute("listTask",serviceTask.fillAllTask());
+////		for (Task task : serviceTask.fillAllTask()) {
+////			if (task.getCreationTaskProjectMain().equals(editProject.getIdProject())) {
+////				
+////			}
+////		};
+//		return "view_project";
+//	}
+
 	@GetMapping("/projectAccess")
 	public String projectAccess(Model model) {
 		model.addAttribute("listProject", serviceProject.fillAllProject());
 		return "projectAccess";
 	}
+
 	@GetMapping(value = { "/project-{idProject}-editAccess" })
 	public String projectAccessEdit(@PathVariable Integer idProject, Model model) {
-		ProjectGlobal edit=serviceProject.findbyIdProject(idProject);
+		ProjectGlobal edit = serviceProject.findbyIdProject(idProject);
 		model.addAttribute("project", new ProjectGlobal());
 		model.addAttribute("projectEdit", edit);
 		model.addAttribute("listUser", serviceUser.findAllUser());
@@ -101,19 +106,22 @@ public class ProjectController {
 		model.addAttribute("listUsers", serviceUser.findAllUser());
 		return "projectAccessProject";
 	}
+
 	@PostMapping(value = { "/project-{idProject}-editAccess" })
-	public String editProject(@ModelAttribute("project") ProjectGlobal editProject,BindingResult bindingResult) {
-	serviceProject.saveProject(editProject);
+	public String editProject(@ModelAttribute("project") ProjectGlobal editProject, BindingResult bindingResult) {
+		serviceProject.saveProject(editProject);
 		return "redirect:/projectAccess";
 	}
+
 	@GetMapping(value = { "/projectDelete-{idProject}" })
 	public String projectDelete(@PathVariable Integer idProject, Model model) {
 		serviceProject.deleteProject(idProject);
 		return "redirect:/projectAccess";
 	}
+
 	@GetMapping(value = { "/project_all_user" })
 	public String projectAllUser(Model model) {
-		int active= 0,close= 0,archive= 0;
+		int active = 0, close = 0, archive = 0;
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		UserMY userMY = serviceUser.findByUsername(auth.getName());
 		model.addAttribute("user", userMY);
@@ -130,18 +138,41 @@ public class ProjectController {
 			case 3:
 				archive++;
 				break;
-				}
 			}
+		}
 		model.addAttribute("active", active);
 		model.addAttribute("close", close);
 		model.addAttribute("archive", archive);
-		return "project_all_user";	
+		return "project_all_user";
 	}
-	
-	@GetMapping("/delete-{idProject}")
-	public String deleteTask(@PathVariable int idProject) {
-		serviceProject.deleteProject(idProject);
-		return "redirect:/project_all_user";
+
+	@GetMapping(value = { "/project-{idProject}" })
+	public String projectView(@PathVariable Integer idProject, Model model) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		UserMY userMY = serviceUser.findByUsername(auth.getName());
+		model.addAttribute("user", userMY);
+		ProjectGlobal editProject = serviceProject.findbyIdProject(idProject);
+		if (userMY.getIdUser() == editProject.getManagerUser().getIdUser()) {
+			model.addAttribute("listStatusProject", serviceStatusProject.findAllStatus());
+		}
+		model.addAttribute("project", editProject);
+		List<Task> listTaskIdProject = new ArrayList<Task>();
+		for (Task task : serviceTask.fillAllTask()) {
+			if (task.getCreationTaskProjectMain().getIdProject()==(editProject.getIdProject())) {
+				listTaskIdProject.add(task);
+			}
+		}
+		model.addAttribute("listTaskIdProject",listTaskIdProject );
+		return "project";
 	}
-	
+
+	@PostMapping(value = { "/project-{idProject}" })
+	public String editStatusProject(@PathVariable Integer idProject,
+			@ModelAttribute("statusProject") StatusProject status, Model model) {
+		ProjectGlobal getIdProject = serviceProject.findbyIdProject(idProject);
+		model.addAttribute("project", getIdProject);
+		getIdProject.setStatusProject(status);
+		serviceProject.saveProject(getIdProject);
+		return "task";
+	}
 }
