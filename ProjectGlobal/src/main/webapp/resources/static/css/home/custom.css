@@ -254,6 +254,13 @@ font-weight: 700;
 	text-shadow:none;
 	
 }
+.sidebar-collapse .nav > .Project-status {
+	text-align: center;
+	color:#fff;
+	background:#202020;
+	text-shadow:none;
+	
+}
 .sidebar-collapse > .nav > li > a {
 	padding:15px 10px;
 }
