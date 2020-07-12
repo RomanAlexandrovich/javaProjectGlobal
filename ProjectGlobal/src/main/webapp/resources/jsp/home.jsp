@@ -44,7 +44,7 @@
 						<li><a href="/task_all"><i class="fa fa-desktop fa-3x"></i>
 								Tasks</a></li>
 						<li><a href="/project"><i class="fa fa-qrcode fa-3x"></i>Projects</a></li>
-						<li><a class="active-menu" href="/home"><i
+						<li><a href="/home"><i
 								class="fa fa-bar-chart-o fa-3x"></i>Statistic</a></li>
 						<c:forEach var="role" items="${user.rolesUser}">
 							<c:if test="${role.idRole == 1}">
